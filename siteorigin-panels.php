@@ -737,6 +737,8 @@ function siteorigin_panels_render( $post_id = false, $enqueue_css = true, $panel
 			echo '>';
 		}
 
+		echo apply_filters( 'siteorigin_panels_before_content', '', $panels_data['grids'][$gi] );
+
 		foreach ( $cells as $ci => $widgets ) {
 			// Themes can add their own styles to cells
 			$cell_classes = apply_filters( 'siteorigin_panels_row_cell_classes', array('panel-grid-cell'), $panels_data );
@@ -760,6 +762,9 @@ function siteorigin_panels_render( $post_id = false, $enqueue_css = true, $panel
 			if ( empty( $widgets ) ) echo '&nbsp;';
 			echo '</div>';
 		}
+
+		echo apply_filters( 'siteorigin_panels_after_content', '', $panels_data['grids'][$gi] );
+
 		echo '</div>';
 
 		if( !empty($style_attributes) ) {
