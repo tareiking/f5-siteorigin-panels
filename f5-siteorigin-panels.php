@@ -1,15 +1,18 @@
 <?php
 /*
-Plugin Name: Page Builder by SiteOrigin
-Plugin URI: http://siteorigin.com/page-builder/
-Description: A drag and drop, responsive page builder that simplifies building your website.
+Plugin Name: F5 Page Builder by SiteOrigin
+Plugin URI: http://sennza.com.au/
+Description: A drag and drop, responsive page builder that simplifies building your website. In this modified version, we maintain two additional filters to support full-width Foundation 5 layouts.
 Version: 1.5
-Author: Greg Priday
-Author URI: http://siteorigin.com
+Author: Tarei King
+Author URI: http://tarei.me
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl.html
 Donate link: http://siteorigin.com/page-builder/donate/
+GitHub Plugin URI: tareiking/f5-siteorigin-panels
+GitHub Plugin URI: https://github.com/tareiking/f5-siteorigin-panels
 */
+
 
 define('SITEORIGIN_PANELS_VERSION', '1.5');
 define('SITEORIGIN_PANELS_BASE_FILE', __FILE__);
