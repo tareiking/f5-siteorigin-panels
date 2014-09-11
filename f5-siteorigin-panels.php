@@ -3,7 +3,7 @@
 Plugin Name: F5 Page Builder by SiteOrigin
 Plugin URI: http://sennza.com.au/
 Description: A drag and drop, responsive page builder that simplifies building your website. In this modified version, we maintain two additional filters to support full-width Foundation 5 layouts.
-Version: 1.5
+Version: 1.5.1
 Author: Tarei King
 Author URI: http://tarei.me
 License: GPL3
@@ -13,8 +13,7 @@ GitHub Plugin URI: tareiking/f5-siteorigin-panels
 GitHub Plugin URI: https://github.com/tareiking/f5-siteorigin-panels
 */
 
-
-define('SITEORIGIN_PANELS_VERSION', '1.5');
+define('SITEORIGIN_PANELS_VERSION', '1.5.1');
 define('SITEORIGIN_PANELS_BASE_FILE', __FILE__);
 
 include plugin_dir_path(__FILE__) . 'widgets/basic.php';
@@ -592,6 +591,7 @@ function siteorigin_panels_filter_content( $content ) {
 	global $post;
 
 	if ( empty( $post ) ) return $content;
+	if ( !apply_filters( 'siteorigin_panels_filter_content_enabled', true ) ) return $content;
 	if ( in_array( $post->post_type, siteorigin_panels_setting('post-types') ) ) {
 		$panel_content = siteorigin_panels_render( $post->ID );
 
