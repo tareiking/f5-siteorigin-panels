@@ -1,14 +1,16 @@
 <?php
 /*
-Plugin Name: Page Builder by SiteOrigin
-Plugin URI: https://siteorigin.com/page-builder/
-Description: A drag and drop, responsive page builder that simplifies building your website.
+Plugin Name: F5 Page Builder by SiteOrigin
+Plugin URI: http://sennza.com.au/
+Description: A drag and drop, responsive page builder that simplifies building your website. In this modified version, we maintain two additional filters to support full-width Foundation 5 layouts.
 Version: 1.5.4
-Author: Greg Priday
-Author URI: http://siteorigin.com
+Author: Tarei King
+Author URI: http://tarei.me
 License: GPL3
-License URI: https://www.gnu.org/licenses/gpl.html
-Donate link: https://siteorigin.com/page-builder/#donate
+License URI: http://www.gnu.org/licenses/gpl.html
+Donate link: http://siteorigin.com/page-builder/donate/
+GitHub Plugin URI: tareiking/f5-siteorigin-panels
+GitHub Plugin URI: https://github.com/tareiking/f5-siteorigin-panels
 */
 
 define('SITEORIGIN_PANELS_VERSION', '1.5.4');
@@ -719,6 +721,8 @@ function siteorigin_panels_render( $post_id = false, $enqueue_css = true, $panel
 			echo '>';
 		}
 
+		echo apply_filters( 'siteorigin_panels_before_content', '', $panels_data['grids'][$gi] );
+
 		foreach ( $cells as $ci => $widgets ) {
 			// Themes can add their own styles to cells
 			$cell_classes = apply_filters( 'siteorigin_panels_row_cell_classes', array('panel-grid-cell'), $panels_data );
@@ -742,6 +746,9 @@ function siteorigin_panels_render( $post_id = false, $enqueue_css = true, $panel
 			if ( empty( $widgets ) ) echo '&nbsp;';
 			echo '</div>';
 		}
+
+		echo apply_filters( 'siteorigin_panels_after_content', '', $panels_data['grids'][$gi] );
+
 		echo '</div>';
 
 		if( !empty($style_attributes) ) {
